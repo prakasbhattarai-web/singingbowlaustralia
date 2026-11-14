@@ -7,13 +7,17 @@
   <meta name="description" content="Listen to a free Himalayan singing bowl loop, book a sound bath in the Canberra region or online, and ask about singing bowl prices. Learn to meditate with Prakash Bhattarai.">
   <link rel="canonical" href="https://singingbowlaustralia.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="/img/hero.webp" media="(min-width: 768px)">
   <meta name="theme-color" content="#020617">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Singing Bowl Australia">
   <meta property="og:title" content="Singing Bowl Australia: find stillness in sound">
   <meta property="og:description" content="A free singing bowl loop for meditation and sleep, sound baths in the Canberra region and online, and singing bowls from Nepal.">
   <meta property="og:url" content="https://singingbowlaustralia.com/">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://singingbowlaustralia.com/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -75,19 +79,30 @@
 
   <main id="top">
   <!-- Hero -->
-  <section class="relative min-h-screen flex items-center justify-center gradient-bg overflow-hidden">
-    <div class="absolute inset-0 opacity-20" aria-hidden="true">
-      <div class="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-amber-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
-    </div>
-    <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl pt-20">
-      <p class="text-amber-300 tracking-widest text-sm mb-4">HIMALAYAN SINGING BOWLS · AUSTRALIA</p>
-      <h1 class="serif text-5xl sm:text-6xl md:text-8xl font-bold mb-6 leading-tight">Find Stillness<br>in Sound</h1>
-      <p class="text-lg sm:text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto">Press play on a singing bowl, slow your breathing, and give your mind somewhere quiet to rest. Free to listen, any time.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#listen" class="bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-medium text-lg transition">Listen Free</a>
-        <a href="#bowls" class="border border-slate-500 hover:border-amber-400 px-8 py-4 rounded-full font-medium text-lg transition">How Much Is a Bowl?</a>
+  <section class="relative md:min-h-screen flex flex-col md:flex-row md:items-center overflow-hidden bg-[#0b0806]">
+    <!-- Desktop: full-bleed photo, darkened on the left behind the text -->
+    <img src="/img/hero.webp" alt="" aria-hidden="true" fetchpriority="high"
+         class="hidden md:block absolute inset-0 w-full h-full object-cover object-right">
+    <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-[#0b0806] via-[#0b0806]/80 to-transparent" aria-hidden="true"></div>
+    <div class="hidden md:block absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-900 to-transparent" aria-hidden="true"></div>
+
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-28 pb-8 md:py-32 text-center md:text-left">
+      <div class="md:max-w-xl">
+        <p class="text-amber-300 tracking-widest text-sm mb-4">HIMALAYAN SINGING BOWLS · AUSTRALIA</p>
+        <h1 class="serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">Find Stillness<br>in Sound</h1>
+        <p class="text-lg sm:text-xl text-slate-300 mb-10">Press play on a singing bowl, slow your breathing, and give your mind somewhere quiet to rest. Free to listen, any time.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="#listen" class="bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-medium text-lg transition text-center">Listen Free</a>
+          <a href="#bowls" class="border border-slate-400 hover:border-amber-400 bg-black/20 px-8 py-4 rounded-full font-medium text-lg transition text-center">How Much Is a Bowl?</a>
+        </div>
       </div>
+    </div>
+
+    <!-- Mobile: photo below the text, fading into the page -->
+    <div class="md:hidden relative" aria-hidden="true">
+      <img src="/img/hero-mobile.webp" alt="" class="w-full aspect-square object-cover">
+      <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0b0806] to-transparent"></div>
+      <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-900 to-transparent"></div>
     </div>
   </section>
 
@@ -186,35 +201,44 @@
       <div class="text-center mb-14">
         <h2 class="serif text-4xl sm:text-5xl mb-4">Singing Bowls from Nepal</h2>
         <p class="text-slate-400 text-lg max-w-2xl mx-auto">We're planning a small batch of singing bowls for Australia. Tap "How much?" on the size you like and we'll email you photos and prices as soon as they're ready.</p>
+        <p class="text-slate-500 text-xs mt-3">Photos show the style of bowl. We'll send photos of the actual bowls with prices.</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-slate-800 rounded-2xl p-6 flex flex-col">
-          <i class="fas fa-circle text-amber-400/70 text-xl mb-4" aria-hidden="true"></i>
+        <div class="bg-slate-800 rounded-2xl overflow-hidden flex flex-col">
+          <img src="/img/bowl-small.webp" alt="Small hand-hammered singing bowl held in an open palm" width="800" height="603" loading="lazy" class="w-full aspect-[4/3] object-cover">
+          <div class="p-6 flex flex-col flex-1">
           <h3 class="serif text-2xl mb-1">Small</h3>
           <p class="text-slate-400 text-sm mb-1">About 10–14 cm</p>
           <p class="text-slate-300 text-sm mb-6 flex-1">Fits in your hand. A bright, clear tone for a desk, travel or a first bowl.</p>
           <button class="ask border border-amber-400 text-amber-200 hover:bg-amber-500 hover:text-slate-900 py-3 rounded-full font-medium transition" data-bowl="small">How much?</button>
+          </div>
         </div>
-        <div class="bg-slate-800 rounded-2xl p-6 flex flex-col">
-          <i class="fas fa-circle text-amber-400/70 text-2xl mb-4" aria-hidden="true"></i>
+        <div class="bg-slate-800 rounded-2xl overflow-hidden flex flex-col">
+          <img src="/img/bowl-medium.webp" alt="Medium singing bowl on a red silk cushion with a wooden striker" width="800" height="603" loading="lazy" class="w-full aspect-[4/3] object-cover">
+          <div class="p-6 flex flex-col flex-1">
           <h3 class="serif text-2xl mb-1">Medium</h3>
           <p class="text-slate-400 text-sm mb-1">About 15–20 cm</p>
           <p class="text-slate-300 text-sm mb-6 flex-1">The everyday meditation bowl, with a warm tone that rings for a long time.</p>
           <button class="ask border border-amber-400 text-amber-200 hover:bg-amber-500 hover:text-slate-900 py-3 rounded-full font-medium transition" data-bowl="medium">How much?</button>
+          </div>
         </div>
-        <div class="bg-slate-800 rounded-2xl p-6 flex flex-col">
-          <i class="fas fa-circle text-amber-400/70 text-3xl mb-4" aria-hidden="true"></i>
+        <div class="bg-slate-800 rounded-2xl overflow-hidden flex flex-col">
+          <img src="/img/bowl-large.webp" alt="Large singing bowl on a woven cushion with a felt mallet" width="800" height="603" loading="lazy" class="w-full aspect-[4/3] object-cover">
+          <div class="p-6 flex flex-col flex-1">
           <h3 class="serif text-2xl mb-1">Large</h3>
           <p class="text-slate-400 text-sm mb-1">21 cm and up</p>
           <p class="text-slate-300 text-sm mb-6 flex-1">A deep, rich tone for sound baths, groups and practitioners.</p>
           <button class="ask border border-amber-400 text-amber-200 hover:bg-amber-500 hover:text-slate-900 py-3 rounded-full font-medium transition" data-bowl="large">How much?</button>
+          </div>
         </div>
-        <div class="bg-slate-800 rounded-2xl p-6 flex flex-col">
-          <i class="fas fa-question text-amber-400/70 text-2xl mb-4" aria-hidden="true"></i>
+        <div class="bg-slate-800 rounded-2xl overflow-hidden flex flex-col">
+          <img src="/img/bowl-set.webp" alt="Small, medium and large singing bowls side by side" width="800" height="603" loading="lazy" class="w-full aspect-[4/3] object-cover">
+          <div class="p-6 flex flex-col flex-1">
           <h3 class="serif text-2xl mb-1">Not Sure?</h3>
           <p class="text-slate-400 text-sm mb-1">We'll help you choose</p>
           <p class="text-slate-300 text-sm mb-6 flex-1">Tell us how you'd use it and we'll suggest the right size and tone.</p>
           <button class="ask border border-amber-400 text-amber-200 hover:bg-amber-500 hover:text-slate-900 py-3 rounded-full font-medium transition" data-bowl="help">Ask Us</button>
+          </div>
         </div>
       </div>
     </div>
