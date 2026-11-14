@@ -25,7 +25,7 @@ const SESSION_TAGS = {
   group: "sba_session_group",
 };
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, env, waitUntil }) {
   let body;
   try {
     const type = request.headers.get("content-type") || "";
@@ -78,7 +78,6 @@ export async function onRequestPost({ request, env }) {
         ...(name.length >= 2 ? { name } : {}),
         campaign: { campaignId: env.GR_CAMPAIGN_ID },
         tags: tags.map((tagId) => ({ tagId })),
-        note,
         ipAddress: request.headers.get("cf-connecting-ip") || undefined,
       }),
     });
@@ -94,6 +93,7 @@ export async function onRequestPost({ request, env }) {
           headers,
           body: JSON.stringify({ tags: tags.map((tagId) => ({ tagId })) }),
         });
+        await addNote(id, note, headers);
       }
       return json({ ok: true });
     }
@@ -101,11 +101,37 @@ export async function onRequestPost({ request, env }) {
       console.error("GetResponse error", res.status, await res.text());
       return json({ ok: false, error: "Something went wrong. Please try again." }, 502);
     }
+    // GetResponse adds new contacts asynchronously and ignores "note" on create,
+    // so wait for the contact to exist, then attach the note (bowl, suburb, message).
+    waitUntil(noteWhenReady(email, env.GR_CAMPAIGN_ID, note, headers));
     return json({ ok: true });
   } catch (err) {
     console.error(err);
     return json({ ok: false, error: "Something went wrong. Please try again." }, 502);
   }
+}
+
+async function findContact(email, campaignId, headers) {
+  const q = new URLSearchParams({ "query[email]": email, "query[campaignId]": campaignId });
+  const found = await (await fetch(`${GR}/contacts?${q}`, { headers })).json();
+  return Array.isArray(found) && found[0]?.contactId;
+}
+
+async function noteWhenReady(email, campaignId, note, headers) {
+  for (let i = 0; i < 6; i++) {
+    await new Promise((r) => setTimeout(r, 4000));
+    try {
+      const id = await findContact(email, campaignId, headers);
+      if (id) return addNote(id, note, headers);
+    } catch {}
+  }
+  console.error("Contact not found in time to add note", email);
+}
+
+async function addNote(id, note, headers) {
+  const cur = await (await fetch(`${GR}/contacts/${id}?fields=note`, { headers })).json();
+  const merged = [note, cur?.note].filter(Boolean).join(" || ").slice(0, 255);
+  await fetch(`${GR}/contacts/${id}`, { method: "POST", headers, body: JSON.stringify({ note: merged }) });
 }
 
 async function tagId(name, headers) {
