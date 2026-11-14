@@ -1,11 +1,14 @@
 # Bowl recordings
 
-The player on the home page loads `audio/bowl-1.mp3`. The current file is a 2-minute AI-generated singing bowl track (ElevenLabs Music v2.5 via Higgsfield). Replace it with Prakash's own recording when ready. If the file is ever removed, the page shows a "recording coming soon" sign-up instead.
+The home-page player offers two sounds:
 
-How to record (phone is fine):
-- Quiet room, no fan, fridge or traffic. Phone 30–50 cm from the bowl, on something soft.
-- Strike or rim the bowl, then let it ring all the way out. Strike again every 10–15 seconds.
-- Record at least 60 seconds. Longer (2–3 minutes) loops more naturally.
+- `prakash-bowl.mp3` (default): Prakash playing his own bowl, taken from the first 41 s of the YouTube Short
+  "Singing Bowl Healing Sounds" (youtube.com/shorts/m9YJPf9YVqg). Denoised, loudness-normalised, faded at the end.
+- `bowl-1.mp3`: a 2-minute AI-generated singing bowl track (ElevenLabs Music v2.5 via Higgsfield).
 
-Then run `scripts/prepare-bowl.sh your-recording.m4a` and commit `audio/bowl-1.mp3`.
-The player crossfades the end of the clip into the start, so it loops smoothly for 5–30 minutes.
+The player crossfades the end of a clip into its start, so either one loops smoothly for 5–30 minutes.
+If `prakash-bowl.mp3` is missing, the page shows a "recording coming soon" sign-up instead of the player.
+
+To swap in a new recording: run `scripts/prepare-bowl.sh your-recording.m4a audio/prakash-bowl.mp3`.
+
+The About-section video is `video/prakash-singing-bowl.mp4` (same Short, H.264 480p, faststart) with the poster `img/prakash-poster.webp`.
