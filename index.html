@@ -1,174 +1,416 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Singing Bowl Australia | Sound Healing & Meditation Coaching</title>
-  <meta name="description" content="Experience the healing power of authentic singing bowls. Guided meditation coaching, sound baths, and free singing bowl sounds from Singing Bowl Australia.">
+  <title>Singing Bowl Australia | Singing Bowl Sounds, Sound Baths &amp; Bowls</title>
+  <meta name="description" content="Listen to a free Himalayan singing bowl loop, book a sound bath in the Canberra region or online, and ask about singing bowl prices. Learn to meditate with Prakash Bhattarai.">
+  <link rel="canonical" href="https://singingbowlaustralia.com/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#020617">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Singing Bowl Australia">
+  <meta property="og:title" content="Singing Bowl Australia: find stillness in sound">
+  <meta property="og:description" content="A free singing bowl loop for meditation and sleep, sound baths in the Canberra region and online, and singing bowls from Nepal.">
+  <meta property="og:url" content="https://singingbowlaustralia.com/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Singing Bowl Australia",
+    "url": "https://singingbowlaustralia.com/",
+    "areaServed": "AU",
+    "founder": { "@type": "Person", "name": "Prakash Bhattarai", "url": "https://prakashbhattarai.com/" },
+    "parentOrganization": { "@type": "Organization", "name": "Soham Collective", "url": "https://sohamcollective.com/" },
+    "sameAs": ["https://www.youtube.com/@Sohamguidedmeditation", "https://www.tiktok.com/@thecalmin60"]
+  }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
     body { font-family: 'Inter', sans-serif; }
     h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
     .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); }
     .glow { box-shadow: 0 0 40px rgba(251, 191, 36, 0.15); }
+    .field { width: 100%; background: #334155; border: 1px solid #475569; border-radius: .5rem; padding: .75rem 1rem; color: #f1f5f9; }
+    .field:focus { outline: none; border-color: #fbbf24; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    dialog::backdrop { background: rgba(2, 6, 23, .8); backdrop-filter: blur(4px); }
+    .ring-pulse { animation: ring 4s ease-out infinite; }
+    @keyframes ring { 0% { transform: scale(.85); opacity: .7 } 100% { transform: scale(1.35); opacity: 0 } }
+    @media (prefers-reduced-motion: reduce) { .ring-pulse, .animate-pulse { animation: none; } html { scroll-behavior: auto; } }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100">
 
   <!-- Navigation -->
   <nav class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="serif text-2xl font-semibold text-amber-200">Singing Bowl Australia</a>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+      <a href="#top" class="serif text-xl sm:text-2xl font-semibold text-amber-200">Singing Bowl Australia</a>
       <div class="hidden md:flex space-x-8 text-sm">
-        <a href="#sounds" class="hover:text-amber-200 transition">Sounds</a>
-        <a href="#healing" class="hover:text-amber-200 transition">Healing</a>
-        <a href="#coaching" class="hover:text-amber-200 transition">Coaching</a>
-        <a href="#contact" class="hover:text-amber-200 transition">Book a Session</a>
+        <a href="#listen" class="hover:text-amber-200 transition">Listen</a>
+        <a href="#sound-baths" class="hover:text-amber-200 transition">Sound Baths</a>
+        <a href="#bowls" class="hover:text-amber-200 transition">Bowls</a>
+        <a href="#learn" class="hover:text-amber-200 transition">Learn to Meditate</a>
+        <a href="#about" class="hover:text-amber-200 transition">About</a>
       </div>
-      <a href="#contact" class="bg-amber-500 hover:bg-amber-400 text-slate-900 px-5 py-2 rounded-full text-sm font-medium transition">Start Your Journey</a>
+      <a href="#book" class="hidden md:inline-block bg-amber-500 hover:bg-amber-400 text-slate-900 px-5 py-2 rounded-full text-sm font-medium transition">Book a Session</a>
+      <button id="menuBtn" class="md:hidden text-2xl text-amber-200 p-2 -mr-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-800 bg-slate-950 px-4 pb-6">
+      <a href="#listen" class="block py-3 border-b border-slate-800">Listen</a>
+      <a href="#sound-baths" class="block py-3 border-b border-slate-800">Sound Baths</a>
+      <a href="#bowls" class="block py-3 border-b border-slate-800">Bowls</a>
+      <a href="#learn" class="block py-3 border-b border-slate-800">Learn to Meditate</a>
+      <a href="#about" class="block py-3 border-b border-slate-800">About</a>
+      <a href="#book" class="block mt-4 text-center bg-amber-500 text-slate-900 px-5 py-3 rounded-full font-medium">Book a Session</a>
     </div>
   </nav>
 
+  <main id="top">
   <!-- Hero -->
   <section class="relative min-h-screen flex items-center justify-center gradient-bg overflow-hidden">
-    <div class="absolute inset-0 opacity-20">
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl animate-pulse delay-1000"></div>
+    <div class="absolute inset-0 opacity-20" aria-hidden="true">
+      <div class="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-amber-500 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
     </div>
-    <div class="relative z-10 text-center px-6 max-w-4xl">
-      <p class="text-amber-300 tracking-widest text-sm mb-4">AUTHENTIC SOUND HEALING</p>
-      <h1 class="serif text-6xl md:text-8xl font-bold mb-6 leading-tight">Find Stillness<br>in Sound</h1>
-      <p class="text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto">Experience the ancient resonance of Himalayan singing bowls. Free sounds, guided meditations, and personal coaching for deep healing.</p>
+    <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl pt-20">
+      <p class="text-amber-300 tracking-widest text-sm mb-4">HIMALAYAN SINGING BOWLS · AUSTRALIA</p>
+      <h1 class="serif text-5xl sm:text-6xl md:text-8xl font-bold mb-6 leading-tight">Find Stillness<br>in Sound</h1>
+      <p class="text-lg sm:text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto">Press play on a singing bowl, slow your breathing, and give your mind somewhere quiet to rest. Free to listen, any time.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#sounds" class="bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-medium text-lg transition">Listen to Free Sounds</a>
-        <a href="#contact" class="border border-slate-500 hover:border-amber-400 px-8 py-4 rounded-full font-medium text-lg transition">Book Coaching</a>
+        <a href="#listen" class="bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-medium text-lg transition">Listen Free</a>
+        <a href="#bowls" class="border border-slate-500 hover:border-amber-400 px-8 py-4 rounded-full font-medium text-lg transition">How Much Is a Bowl?</a>
       </div>
     </div>
   </section>
 
-  <!-- Sounds Section -->
-  <section id="sounds" class="py-24 px-6 bg-slate-900">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="serif text-5xl mb-4">Free Singing Bowl Sounds</h2>
-        <p class="text-slate-400 text-lg max-w-2xl mx-auto">Immerse yourself in pure resonance. Use these recordings for meditation, sleep, focus, or space clearing.</p>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Audio Card 1 -->
-        <div class="bg-slate-800 rounded-2xl p-6 glow hover:scale-105 transition duration-300">
-          <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mb-4">
-            <i class="fas fa-om text-amber-400 text-2xl"></i>
+  <!-- Listen -->
+  <section id="listen" class="py-20 sm:py-24 px-4 sm:px-6 bg-slate-900">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="serif text-4xl sm:text-5xl mb-4">Free Singing Bowl Sound</h2>
+      <p class="text-slate-400 text-lg mb-12">Choose how long you want to sit. The bowl plays on a gentle loop and fades out at the end, so you can close your eyes and not watch the clock.</p>
+
+      <div class="bg-slate-800 rounded-3xl p-6 sm:p-10 glow">
+        <div class="relative w-36 h-36 mx-auto mb-8" aria-hidden="true">
+          <div id="ring" class="absolute inset-0 rounded-full border-2 border-amber-400/60 hidden ring-pulse"></div>
+          <div class="absolute inset-0 rounded-full bg-amber-500/15 flex items-center justify-center">
+            <i class="fas fa-om text-amber-300 text-5xl"></i>
           </div>
-          <h3 class="serif text-2xl mb-2">Deep Grounding Bowl</h3>
-          <p class="text-slate-400 text-sm mb-4">Root chakra • Low frequency • 15 min</p>
-          <audio controls class="w-full mb-4" preload="none">
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-          <p class="text-xs text-slate-500">Placeholder audio — replace with your own recordings</p>
         </div>
 
-        <!-- Audio Card 2 -->
-        <div class="bg-slate-800 rounded-2xl p-6 glow hover:scale-105 transition duration-300">
-          <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mb-4">
-            <i class="fas fa-moon text-purple-400 text-2xl"></i>
+        <!-- Shown when the recording is available -->
+        <div id="playerReady" class="hidden">
+          <h3 class="serif text-3xl mb-1">Himalayan Bowl</h3>
+          <p class="text-slate-400 text-sm mb-6">Recorded by Prakash · use headphones for the best sound</p>
+          <div class="flex flex-wrap justify-center gap-2 mb-6" role="radiogroup" aria-label="Session length">
+            <button class="len px-4 py-2 rounded-full border border-slate-600 text-sm" data-min="5">5 min</button>
+            <button class="len px-4 py-2 rounded-full border border-slate-600 text-sm" data-min="10">10 min</button>
+            <button class="len px-4 py-2 rounded-full border border-slate-600 text-sm" data-min="20">20 min</button>
+            <button class="len px-4 py-2 rounded-full border border-slate-600 text-sm" data-min="30">30 min</button>
           </div>
-          <h3 class="serif text-2xl mb-2">Sleep & Dream Journey</h3>
-          <p class="text-slate-400 text-sm mb-4">Third eye • Soft tones • 20 min</p>
-          <audio controls class="w-full mb-4" preload="none">
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-          <p class="text-xs text-slate-500">Placeholder audio — replace with your own recordings</p>
+          <button id="playBtn" class="bg-amber-500 hover:bg-amber-400 text-slate-900 w-full sm:w-auto px-10 py-4 rounded-full font-medium text-lg transition">
+            <i class="fas fa-play mr-2"></i><span>Begin</span>
+          </button>
+          <p id="timeLeft" class="text-slate-400 text-sm mt-4 h-5" aria-live="polite"></p>
         </div>
 
-        <!-- Audio Card 3 -->
-        <div class="bg-slate-800 rounded-2xl p-6 glow hover:scale-105 transition duration-300">
-          <div class="w-16 h-16 bg-teal-500/20 rounded-full flex items-center justify-center mb-4">
-            <i class="fas fa-heart text-teal-400 text-2xl"></i>
-          </div>
-          <h3 class="serif text-2xl mb-2">Heart Opening</h3>
-          <p class="text-slate-400 text-sm mb-4">Heart chakra • Warm resonance • 12 min</p>
-          <audio controls class="w-full mb-4" preload="none">
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-          <p class="text-xs text-slate-500">Placeholder audio — replace with your own recordings</p>
+        <!-- Shown until the recording is uploaded -->
+        <div id="playerSoon">
+          <h3 class="serif text-3xl mb-2">Recording Coming Soon</h3>
+          <p class="text-slate-400 mb-6">Prakash is recording the first bowl session now. Leave your email and we'll send it to you the day it's ready.</p>
+          <form data-kind="sound" class="space-y-4 text-left max-w-md mx-auto">
+            <label class="block"><span class="block text-sm mb-2">Email address</span>
+              <input type="email" name="email" required autocomplete="email" class="field"></label>
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-900 py-3 rounded-full font-medium transition">Send Me the Recording</button>
+            <p class="status text-sm text-center" role="status"></p>
+          </form>
         </div>
       </div>
+      <p class="text-sm text-slate-500 mt-6">Want guided meditations too? Watch them free on <a class="text-amber-300 hover:underline" href="https://www.youtube.com/@Sohamguidedmeditation" target="_blank" rel="noopener">YouTube</a>.</p>
     </div>
   </section>
 
-  <!-- Healing Section -->
-  <section id="healing" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+  <!-- Sound baths -->
+  <section id="sound-baths" class="py-20 sm:py-24 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-start">
       <div>
-        <h2 class="serif text-5xl mb-6">The Power of Sound Healing</h2>
-        <p class="text-slate-300 text-lg mb-6">Singing bowls have been used for centuries in the Himalayas to restore balance, clear stagnant energy, and bring the mind into deep states of meditation.</p>
+        <h2 class="serif text-4xl sm:text-5xl mb-6">What Is a Sound Bath?</h2>
+        <p class="text-slate-300 text-lg mb-6">You lie down, get comfortable and listen while singing bowls are played around you. There's nothing to do and nothing to get right. The long, fading tones give your attention one simple thing to follow, and many people find it the easiest way into meditation.</p>
         <ul class="space-y-4 text-slate-300">
-          <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i> Reduces stress and anxiety</li>
-          <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i> Supports better sleep and emotional release</li>
-          <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i> Clears energetic blocks and promotes healing</li>
-          <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i> Deepens meditation and spiritual practice</li>
+          <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i> A quiet hour to slow down and unwind</li>
+          <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i> A calm way to settle the mind before sleep</li>
+          <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i> A focus point that makes meditation easier for beginners</li>
+          <li class="flex items-start"><i class="fas fa-check text-amber-400 mt-1 mr-3"></i> Gentle enough for anyone, with no experience needed</li>
         </ul>
+        <p class="text-xs text-slate-500 mt-8">Sound baths are a relaxation and meditation practice. They are not a medical treatment and don't replace care from a doctor or mental health professional.</p>
       </div>
-      <div class="bg-slate-800 rounded-3xl p-8 glow">
-        <h3 class="serif text-3xl mb-4">Personal Sound Healing Sessions</h3>
-        <p class="text-slate-300 mb-6">One-on-one or small group sessions tailored to your needs. Online or in-person (Australia).</p>
-        <a href="#contact" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-900 px-6 py-3 rounded-full font-medium">Book a Session</a>
+
+      <div id="book" class="bg-slate-800 rounded-3xl p-6 sm:p-8 glow">
+        <h3 class="serif text-3xl mb-2">Book a Session</h3>
+        <p class="text-slate-400 mb-6">One-on-one or small group, online or in person in the Canberra region. Tell us what suits you and we'll email you times and prices.</p>
+        <form data-kind="session" class="space-y-4">
+          <label class="block"><span class="block text-sm mb-2">Your name</span>
+            <input type="text" name="name" required autocomplete="name" class="field"></label>
+          <label class="block"><span class="block text-sm mb-2">Email address</span>
+            <input type="email" name="email" required autocomplete="email" class="field"></label>
+          <label class="block"><span class="block text-sm mb-2">What would you like?</span>
+            <select name="session" class="field">
+              <option value="online">Online session</option>
+              <option value="inperson">In-person session (Canberra region)</option>
+              <option value="group">Group sound bath</option>
+            </select></label>
+          <label class="block"><span class="block text-sm mb-2">Anything we should know? (optional)</span>
+            <textarea name="message" rows="3" class="field"></textarea></label>
+          <label class="flex items-start gap-3 text-sm text-slate-300">
+            <input type="checkbox" name="updates" value="1" class="mt-1 accent-amber-500">
+            <span>Also send me occasional emails about sound baths and meditation.</span></label>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-900 py-4 rounded-full font-medium text-lg transition">Send My Request</button>
+          <p class="status text-sm text-center" role="status"></p>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- Coaching Lead Form -->
-  <section id="coaching" class="py-24 px-6 bg-slate-900">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="serif text-5xl mb-4">Meditation Coaching</h2>
-      <p class="text-slate-400 text-lg mb-10">Ready to go deeper? Join a free discovery call or receive guided practices and support on your meditation journey.</p>
-      
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-5 text-left bg-slate-800 p-8 rounded-2xl glow">
-        <div>
-          <label class="block text-sm mb-2">Your Name</label>
-          <input type="text" name="name" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-400">
+  <!-- Bowls -->
+  <section id="bowls" class="py-20 sm:py-24 px-4 sm:px-6 bg-slate-900">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="serif text-4xl sm:text-5xl mb-4">Singing Bowls from Nepal</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">We're planning a small batch of singing bowls for Australia. Tap "How much?" on the size you like and we'll email you photos and prices as soon as they're ready.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-slate-800 rounded-2xl p-6 flex flex-col">
+          <i class="fas fa-circle text-amber-400/70 text-xl mb-4" aria-hidden="true"></i>
+          <h3 class="serif text-2xl mb-1">Small</h3>
+          <p class="text-slate-400 text-sm mb-1">About 10–14 cm</p>
+          <p class="text-slate-300 text-sm mb-6 flex-1">Fits in your hand. A bright, clear tone for a desk, travel or a first bowl.</p>
+          <button class="ask border border-amber-400 text-amber-200 hover:bg-amber-500 hover:text-slate-900 py-3 rounded-full font-medium transition" data-bowl="small">How much?</button>
         </div>
-        <div>
-          <label class="block text-sm mb-2">Email Address</label>
-          <input type="email" name="email" required class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-400">
+        <div class="bg-slate-800 rounded-2xl p-6 flex flex-col">
+          <i class="fas fa-circle text-amber-400/70 text-2xl mb-4" aria-hidden="true"></i>
+          <h3 class="serif text-2xl mb-1">Medium</h3>
+          <p class="text-slate-400 text-sm mb-1">About 15–20 cm</p>
+          <p class="text-slate-300 text-sm mb-6 flex-1">The everyday meditation bowl, with a warm tone that rings for a long time.</p>
+          <button class="ask border border-amber-400 text-amber-200 hover:bg-amber-500 hover:text-slate-900 py-3 rounded-full font-medium transition" data-bowl="medium">How much?</button>
         </div>
-        <div>
-          <label class="block text-sm mb-2">What are you seeking?</label>
-          <select name="interest" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-400">
-            <option>Meditation Coaching</option>
-            <option>Personal Sound Healing Session</option>
-            <option>Group Sound Bath</option>
-            <option>Just exploring the sounds</option>
-          </select>
+        <div class="bg-slate-800 rounded-2xl p-6 flex flex-col">
+          <i class="fas fa-circle text-amber-400/70 text-3xl mb-4" aria-hidden="true"></i>
+          <h3 class="serif text-2xl mb-1">Large</h3>
+          <p class="text-slate-400 text-sm mb-1">21 cm and up</p>
+          <p class="text-slate-300 text-sm mb-6 flex-1">A deep, rich tone for sound baths, groups and practitioners.</p>
+          <button class="ask border border-amber-400 text-amber-200 hover:bg-amber-500 hover:text-slate-900 py-3 rounded-full font-medium transition" data-bowl="large">How much?</button>
         </div>
-        <div>
-          <label class="block text-sm mb-2">Message (optional)</label>
-          <textarea name="message" rows="4" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-400"></textarea>
+        <div class="bg-slate-800 rounded-2xl p-6 flex flex-col">
+          <i class="fas fa-question text-amber-400/70 text-2xl mb-4" aria-hidden="true"></i>
+          <h3 class="serif text-2xl mb-1">Not Sure?</h3>
+          <p class="text-slate-400 text-sm mb-1">We'll help you choose</p>
+          <p class="text-slate-300 text-sm mb-6 flex-1">Tell us how you'd use it and we'll suggest the right size and tone.</p>
+          <button class="ask border border-amber-400 text-amber-200 hover:bg-amber-500 hover:text-slate-900 py-3 rounded-full font-medium transition" data-bowl="help">Ask Us</button>
         </div>
-        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-900 py-4 rounded-full font-medium text-lg transition">Send My Interest</button>
-        <p class="text-xs text-slate-500 text-center">Replace the form action with your Formspree or Cloudflare form endpoint.</p>
-      </form>
+      </div>
     </div>
   </section>
 
-  <!-- Contact / Footer -->
-  <footer id="contact" class="py-16 px-6 border-t border-slate-800">
+  <!-- Learn to meditate (community) -->
+  <section id="learn" class="py-20 sm:py-24 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto bg-gradient-to-br from-amber-500/15 to-purple-600/15 border border-slate-700 rounded-3xl p-6 sm:p-12 text-center">
+      <p class="text-amber-300 tracking-widest text-sm mb-4">THE NEXT STEP</p>
+      <h2 class="serif text-4xl sm:text-5xl mb-6">The Bowl Is Where It Starts</h2>
+      <p class="text-slate-300 text-lg mb-4 max-w-2xl mx-auto">A singing bowl helps you get quiet. Learning to stay aware in that quiet is the real practice, and it's much easier when you're not doing it alone.</p>
+      <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">Join Prakash's Meditation for Beginners community for short daily practices, live sessions and people learning alongside you.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://prakashbhattarai.com/meditation-for-beginners/about?utm_source=singingbowlaustralia&utm_medium=referral&utm_campaign=learn" class="bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-medium text-lg transition">Join the Community</a>
+        <a href="https://meditationforbeginners.com/?utm_source=singingbowlaustralia&utm_medium=referral&utm_campaign=learn" class="border border-slate-500 hover:border-amber-400 px-8 py-4 rounded-full font-medium text-lg transition">Free Beginner Guides</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 sm:py-24 px-4 sm:px-6 bg-slate-900">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="serif text-4xl sm:text-5xl mb-6 text-center">About</h2>
+      <p class="text-slate-300 text-lg mb-6">Singing Bowl Australia is run by <a class="text-amber-300 hover:underline" href="https://prakashbhattarai.com/?utm_source=singingbowlaustralia&utm_medium=referral&utm_campaign=about">Prakash Bhattarai</a>, a meditation teacher based in the Canberra region. Prakash runs the Meditation for Beginners community and makes the daily Calm in 60 stress-relief videos.</p>
+      <p class="text-slate-300 text-lg">Singing bowls have been part of Himalayan practice for generations. Here they're used for what they do best: helping ordinary, busy people stop for a moment, listen and come back to themselves.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer class="py-12 px-4 sm:px-6 border-t border-slate-800">
     <div class="max-w-6xl mx-auto text-center">
-      <h2 class="serif text-4xl mb-4">Begin Your Journey</h2>
-      <p class="text-slate-400 mb-8">singingbowlaustralia.com</p>
-      <div class="flex justify-center space-x-6 text-2xl text-slate-400">
-        <a href="#" class="hover:text-amber-400"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="hover:text-amber-400"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="hover:text-amber-400"><i class="fab fa-facebook"></i></a>
+      <div class="flex justify-center space-x-6 text-2xl text-slate-400 mb-8">
+        <a href="https://www.youtube.com/@Sohamguidedmeditation" target="_blank" rel="noopener" class="hover:text-amber-400" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@thecalmin60" target="_blank" rel="noopener" class="hover:text-amber-400" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
       </div>
-      <p class="text-sm text-slate-600 mt-10">© 2026 Singing Bowl Australia. All rights reserved.</p>
+      <p class="text-sm text-slate-500">© 2026 Singing Bowl Australia · part of <a class="hover:text-amber-300" href="https://sohamcollective.com/">Soham Collective</a> · <a class="hover:text-amber-300" href="https://sohamcollective.com/legal/privacy">Privacy</a></p>
     </div>
   </footer>
 
+  <!-- "How much?" dialog -->
+  <dialog id="askDialog" class="bg-slate-800 text-slate-100 rounded-2xl p-0 w-[calc(100%-2rem)] max-w-md">
+    <form data-kind="quote" class="p-6 sm:p-8 space-y-4">
+      <div class="flex justify-between items-start">
+        <h3 class="serif text-3xl">Get Bowl Prices</h3>
+        <button type="button" class="close text-slate-400 hover:text-white text-xl -mt-1" aria-label="Close"><i class="fas fa-xmark"></i></button>
+      </div>
+      <p class="text-slate-400 text-sm">We'll email you photos, sizes and prices when the bowls are ready. No spam. You can unsubscribe any time.</p>
+      <label class="block"><span class="block text-sm mb-2">Which bowl?</span>
+        <select name="bowl" class="field">
+          <option value="small">Small (10–14 cm)</option>
+          <option value="medium">Medium (15–20 cm)</option>
+          <option value="large">Large (21 cm and up)</option>
+          <option value="help">Not sure, help me choose</option>
+        </select></label>
+      <label class="block"><span class="block text-sm mb-2">Your name</span>
+        <input type="text" name="name" autocomplete="name" class="field"></label>
+      <label class="block"><span class="block text-sm mb-2">Email address</span>
+        <input type="email" name="email" required autocomplete="email" class="field"></label>
+      <label class="block"><span class="block text-sm mb-2">Suburb or city (optional, for delivery)</span>
+        <input type="text" name="location" autocomplete="address-level2" class="field"></label>
+      <label class="flex items-start gap-3 text-sm text-slate-300">
+        <input type="checkbox" name="updates" value="1" class="mt-1 accent-amber-500">
+        <span>Also send me occasional emails about sound baths and meditation.</span></label>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-900 py-3 rounded-full font-medium transition">Email Me the Price</button>
+      <p class="status text-sm text-center" role="status"></p>
+    </form>
+  </dialog>
+
+  <script>
+  // ---- Mobile menu ----
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.innerHTML = open ? '<i class="fas fa-xmark"></i>' : '<i class="fas fa-bars"></i>';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menuBtn.click()));
+
+  // ---- Forms → /api/subscribe ----
+  document.querySelectorAll('form[data-kind]').forEach(form => {
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const status = form.querySelector('.status');
+      const btn = form.querySelector('button[type=submit]');
+      const data = Object.fromEntries(new FormData(form));
+      data.kind = form.dataset.kind;
+      btn.disabled = true; btn.classList.add('opacity-60');
+      status.className = 'status text-sm text-center text-slate-400';
+      status.textContent = 'Sending…';
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
+        });
+        const out = await res.json().catch(() => ({}));
+        if (!res.ok || !out.ok) throw new Error(out.error || 'Something went wrong. Please try again.');
+        form.reset();
+        status.className = 'status text-sm text-center text-emerald-300';
+        status.textContent = form.dataset.kind === 'quote'
+          ? "Thank you! We'll email you the prices soon."
+          : form.dataset.kind === 'sound'
+            ? "You're on the list. We'll send the recording when it's ready."
+            : "Thank you! We'll email you within two days.";
+      } catch (err) {
+        status.className = 'status text-sm text-center text-rose-300';
+        status.textContent = err.message;
+      } finally {
+        btn.disabled = false; btn.classList.remove('opacity-60');
+      }
+    });
+  });
+
+  // ---- "How much?" dialog ----
+  const dlg = document.getElementById('askDialog');
+  document.querySelectorAll('.ask').forEach(b => b.addEventListener('click', () => {
+    dlg.querySelector('select[name=bowl]').value = b.dataset.bowl;
+    dlg.querySelector('.status').textContent = '';
+    dlg.showModal();
+  }));
+  dlg.querySelector('.close').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+  // ---- Looping bowl player (Web Audio, crossfaded loop of one recording) ----
+  const AUDIO_URL = '/audio/bowl-1.mp3';
+  const FADE = 3;          // seconds of crossfade between loops
+  const END_FADE = 10;     // seconds of fade-out at the end of a session
+  let minutes = 10, ctx, buf, master, sources = [], nextAt = 0, endAt = 0, tick, playing = false;
+  const playBtn = document.getElementById('playBtn');
+  const timeLeft = document.getElementById('timeLeft');
+  const ring = document.getElementById('ring');
+
+  fetch(AUDIO_URL, { method: 'HEAD' }).then(r => {
+    if (r.ok && (r.headers.get('content-type') || '').startsWith('audio')) {
+      document.getElementById('playerReady').classList.remove('hidden');
+      document.getElementById('playerSoon').classList.add('hidden');
+    }
+  }).catch(() => {});
+
+  const lenBtns = document.querySelectorAll('.len');
+  function pickLen(m) {
+    minutes = m;
+    lenBtns.forEach(b => {
+      const on = +b.dataset.min === m;
+      b.classList.toggle('bg-amber-500', on); b.classList.toggle('text-slate-900', on);
+      b.classList.toggle('border-amber-500', on); b.setAttribute('aria-checked', on);
+    });
+  }
+  lenBtns.forEach(b => { b.setAttribute('role', 'radio'); b.addEventListener('click', () => { if (!playing) pickLen(+b.dataset.min); }); });
+  pickLen(10);
+
+  function playOnce(at) {
+    const src = ctx.createBufferSource(); src.buffer = buf;
+    const g = ctx.createGain(); src.connect(g).connect(master);
+    const d = buf.duration;
+    g.gain.setValueAtTime(0, at); g.gain.linearRampToValueAtTime(1, at + FADE);
+    g.gain.setValueAtTime(1, at + d - FADE); g.gain.linearRampToValueAtTime(0, at + d);
+    src.start(at); src.stop(at + d);
+    sources.push(src); src.onended = () => { sources = sources.filter(s => s !== src); };
+  }
+  function schedule() {
+    while (nextAt < ctx.currentTime + 4 && nextAt < endAt) { playOnce(nextAt); nextAt += buf.duration - FADE; }
+    const left = Math.max(0, endAt - ctx.currentTime);
+    timeLeft.textContent = Math.floor(left / 60) + ':' + String(Math.floor(left % 60)).padStart(2, '0') + ' left';
+    if (left <= 0) stop(true);
+  }
+  async function start() {
+    playBtn.disabled = true;
+    try {
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      await ctx.resume();
+      if (!buf) {
+        timeLeft.textContent = 'Loading…';
+        buf = await ctx.decodeAudioData(await (await fetch(AUDIO_URL)).arrayBuffer());
+      }
+      master = ctx.createGain(); master.connect(ctx.destination);
+      const t0 = ctx.currentTime + 0.1;
+      endAt = t0 + minutes * 60; nextAt = t0;
+      master.gain.setValueAtTime(1, endAt - END_FADE); master.gain.linearRampToValueAtTime(0, endAt);
+      playing = true; schedule(); tick = setInterval(schedule, 1000);
+      playBtn.innerHTML = '<i class="fas fa-stop mr-2"></i><span>Stop</span>';
+      ring.classList.remove('hidden');
+    } catch (e) {
+      timeLeft.textContent = 'Sorry, the sound could not play on this device.';
+    } finally { playBtn.disabled = false; }
+  }
+  function stop(finished) {
+    clearInterval(tick); playing = false;
+    if (master) { const t = ctx.currentTime; master.gain.cancelScheduledValues(t); master.gain.setValueAtTime(master.gain.value, t); master.gain.linearRampToValueAtTime(0, t + 1.5); }
+    const old = sources; sources = [];
+    setTimeout(() => old.forEach(s => { try { s.stop(); } catch {} }), 1600);
+    playBtn.innerHTML = '<i class="fas fa-play mr-2"></i><span>Begin</span>';
+    ring.classList.add('hidden');
+    timeLeft.textContent = finished ? 'Session complete. Take a slow breath before you get up.' : '';
+  }
+  playBtn.addEventListener('click', () => playing ? stop(false) : start());
+  </script>
 </body>
 </html>
