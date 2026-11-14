@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body { font-family: 'Inter', sans-serif; }
+  h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+  .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); }
+  .glow { box-shadow: 0 0 40px rgba(251, 191, 36, 0.15); }
+  .field { width: 100%; background: #334155; border: 1px solid #475569; border-radius: .5rem; padding: .75rem 1rem; color: #f1f5f9; }
+  .field:focus { outline: none; border-color: #fbbf24; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  dialog::backdrop { background: rgba(2, 6, 23, .8); backdrop-filter: blur(4px); }
+  .ring-pulse { animation: ring 4s ease-out infinite; }
+  @keyframes ring { 0% { transform: scale(.85); opacity: .7 } 100% { transform: scale(1.35); opacity: 0 } }
+  @media (prefers-reduced-motion: reduce) { .ring-pulse, .animate-pulse { animation: none; } html { scroll-behavior: auto; } }
+}
+
+/* Long-form guide pages */
+.prose-guide h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.25rem; line-height: 1.15; margin: 3rem 0 1rem; color: #f8fafc; }
+.prose-guide h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin: 2rem 0 .75rem; color: #fde68a; }
+.prose-guide p, .prose-guide li { color: #cbd5e1; font-size: 1.1rem; line-height: 1.8; }
+.prose-guide p { margin: 0 0 1.25rem; }
+.prose-guide ul, .prose-guide ol { margin: 0 0 1.5rem 1.4rem; }
+.prose-guide ul { list-style: disc; }
+.prose-guide ol { list-style: decimal; }
+.prose-guide li { margin: .4rem 0; padding-left: .25rem; }
+.prose-guide a:not(.btn) { color: #fcd34d; text-decoration: underline; text-underline-offset: 3px; }
+.prose-guide a:not(.btn):hover { color: #fde68a; }
+.prose-guide strong { color: #f1f5f9; }
+.prose-guide figure { margin: 2rem 0; }
+.prose-guide figcaption { color: #64748b; font-size: .85rem; text-align: center; margin-top: .5rem; }
+.prose-guide .note { background: #1e293b; border-left: 3px solid #f59e0b; border-radius: .75rem; padding: 1rem 1.25rem; }
