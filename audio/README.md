@@ -1,6 +1,6 @@
 # Bowl recordings
 
-The player on the home page loads `audio/bowl-1.mp3`. Until that file exists, the page shows a "recording coming soon" sign-up instead of the player.
+The player on the home page loads `audio/bowl-1.mp3`. The current file is a 2-minute AI-generated singing bowl track (ElevenLabs Music v2.5 via Higgsfield). Replace it with Prakash's own recording when ready. If the file is ever removed, the page shows a "recording coming soon" sign-up instead.
 
 How to record (phone is fine):
 - Quiet room, no fan, fridge or traffic. Phone 30–50 cm from the bowl, on something soft.
