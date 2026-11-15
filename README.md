@@ -4,6 +4,16 @@ Website for **singingbowlaustralia.com**: a free looping singing bowl sound, sou
 
 Static HTML with one Cloudflare Pages Function (`functions/api/subscribe.js`) that adds form sign-ups to GetResponse.
 
+## Editing and building
+Guides live in `src/pages/*.html` (a JSON `<!--META ... META-->` header plus the article body). The shared nav, footer and community block are in `src/partials/`.
+After any change run:
+
+```
+python3 scripts/build.py
+```
+
+It writes `/<slug>/index.html` for each guide, injects the nav/footer/guide cards into `index.html`, regenerates `sitemap.xml` and compiles Tailwind to `assets/site.css` (needs Node). Commit the generated files; Cloudflare Pages serves the repo as-is.
+
 ## Files
 - `index.html` is the whole site.
 - `functions/api/subscribe.js` handles `POST /api/subscribe`. All three forms (bowl price, session request, recording waitlist) post here.
