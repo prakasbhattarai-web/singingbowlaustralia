@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://singingbowlaustralia.com/</loc><lastmod>2026-11-14</lastmod><priority>1.0</priority></url>
+  <url><loc>https://singingbowlaustralia.com/</loc><lastmod>2026-11-15</lastmod><priority>1.0</priority></url>
+  <url><loc>https://singingbowlaustralia.com/blog/</loc><lastmod>2026-11-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://singingbowlaustralia.com/blog/crystal-vs-tibetan-singing-bowls/</loc><lastmod>2026-11-15</lastmod><priority>0.8</priority></url>
   <url><loc>https://singingbowlaustralia.com/how-to-use-a-singing-bowl/</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority></url>
   <url><loc>https://singingbowlaustralia.com/singing-bowl-meditation/</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority></url>
   <url><loc>https://singingbowlaustralia.com/singing-bowl-sizes/</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority></url>
   <url><loc>https://singingbowlaustralia.com/sound-bath-canberra/</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority></url>
+  <url><loc>https://singingbowlaustralia.com/blog/sound-bath-vs-massage/</loc><lastmod>2026-11-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://singingbowlaustralia.com/blog/sound-healing-vs-meditation/</loc><lastmod>2026-11-15</lastmod><priority>0.8</priority></url>
   <url><loc>https://singingbowlaustralia.com/what-is-a-sound-bath/</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority></url>
 </urlset>

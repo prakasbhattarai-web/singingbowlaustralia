@@ -7,7 +7,8 @@
   <meta name="description" content="Free singing bowl sounds for meditation and sleep, beginner guides to Tibetan singing bowls, and sound baths in Canberra or online with Prakash Bhattarai.">
   <link rel="canonical" href="https://singingbowlaustralia.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preload" as="image" href="/img/hero.webp" media="(min-width: 768px)">
+  <link rel="preload" as="image" href="/img/hero.webp" media="(min-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/img/hero-mobile.webp" media="(max-width: 767px)" fetchpriority="high">
   <meta name="theme-color" content="#020617">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Singing Bowl Australia">
@@ -79,10 +80,9 @@
  ]
 }
   </script>
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/site.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap">
 </head>
 <body class="bg-slate-950 text-slate-100">
 
@@ -96,6 +96,7 @@
         <a href="/what-is-a-sound-bath/" class="hover:text-amber-200 transition">Sound Baths</a>
         <a href="/#bowls" class="hover:text-amber-200 transition">Bowls</a>
         <a href="/#guides" class="hover:text-amber-200 transition">Guides</a>
+        <a href="/blog/" class="hover:text-amber-200 transition">Blog</a>
         <a href="/#learn" class="hover:text-amber-200 transition">Learn to Meditate</a>
         <a href="/#about" class="hover:text-amber-200 transition">About</a>
       </div>
@@ -109,6 +110,7 @@
       <a href="/what-is-a-sound-bath/" class="block py-3 border-b border-slate-800">Sound Baths</a>
       <a href="/#bowls" class="block py-3 border-b border-slate-800">Bowls</a>
       <a href="/#guides" class="block py-3 border-b border-slate-800">Guides</a>
+      <a href="/blog/" class="block py-3 border-b border-slate-800">Blog</a>
       <a href="/#learn" class="block py-3 border-b border-slate-800">Learn to Meditate</a>
       <a href="/#about" class="block py-3 border-b border-slate-800">About</a>
       <a href="/#book" class="block mt-4 text-center bg-amber-500 text-slate-900 px-5 py-3 rounded-full font-medium">Book a Session</a>
@@ -120,7 +122,7 @@
   <!-- Hero -->
   <section class="relative md:min-h-screen flex flex-col md:flex-row md:items-center overflow-hidden bg-[#0b0806]">
     <!-- Desktop: full-bleed photo, darkened on the left behind the text -->
-    <img src="/img/hero.webp" alt="" aria-hidden="true" fetchpriority="high"
+    <img width="1344" height="752" src="/img/hero.webp" alt="" aria-hidden="true" fetchpriority="high"
          class="hidden md:block absolute inset-0 w-full h-full object-cover object-right">
     <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-[#0b0806] via-[#0b0806]/80 to-transparent" aria-hidden="true"></div>
     <div class="hidden md:block absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-900 to-transparent" aria-hidden="true"></div>
@@ -139,7 +141,7 @@
 
     <!-- Mobile: photo below the text, fading into the page -->
     <div class="md:hidden relative" aria-hidden="true">
-      <img src="/img/hero-mobile.webp" alt="" class="w-full aspect-square object-cover">
+      <img width="800" height="800" src="/img/hero-mobile.webp" alt="" fetchpriority="high" class="w-full aspect-square object-cover">
       <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0b0806] to-transparent"></div>
       <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-900 to-transparent"></div>
     </div>
@@ -304,7 +306,7 @@
   <!-- Learn to meditate (community) -->
   <section id="learn" class="py-20 sm:py-24 px-4 sm:px-6">
     <div class="relative max-w-5xl mx-auto border border-slate-700 rounded-3xl overflow-hidden text-center">
-      <img src="/img/meditation-group.webp" alt="" aria-hidden="true" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+      <img width="1100" height="615" src="/img/meditation-group.webp" alt="" aria-hidden="true" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
       <div class="absolute inset-0 bg-slate-950/80" aria-hidden="true"></div>
       <div class="relative p-6 py-12 sm:p-16">
       <p class="text-amber-300 tracking-widest text-sm mb-4">THE NEXT STEP</p>
@@ -329,32 +331,61 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
   <!-- GUIDES:START -->
         <a href="/how-to-use-a-singing-bowl/" class="group block bg-slate-800 rounded-2xl overflow-hidden hover:ring-1 hover:ring-amber-400/60 transition">
-          <img src="/img/playing-bowl.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
+          <img width="640" height="360" src="/img/playing-bowl.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
           <span class="block p-6"><span class="serif text-2xl text-slate-100 group-hover:text-amber-200">How to Use a Singing Bowl</span>
           <span class="block text-sm text-slate-400 mt-2">Hold, strike and make it sing, step by step.</span></span>
         </a>
         <a href="/singing-bowl-meditation/" class="group block bg-slate-800 rounded-2xl overflow-hidden hover:ring-1 hover:ring-amber-400/60 transition">
-          <img src="/img/meditation-group.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
+          <img width="640" height="360" src="/img/meditation-group.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
           <span class="block p-6"><span class="serif text-2xl text-slate-100 group-hover:text-amber-200">Singing Bowl Meditation</span>
           <span class="block text-sm text-slate-400 mt-2">A 10-minute guided practice with free audio.</span></span>
         </a>
         <a href="/singing-bowl-sizes/" class="group block bg-slate-800 rounded-2xl overflow-hidden hover:ring-1 hover:ring-amber-400/60 transition">
-          <img src="/img/bowl-set.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
+          <img width="640" height="360" src="/img/bowl-set.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
           <span class="block p-6"><span class="serif text-2xl text-slate-100 group-hover:text-amber-200">Singing Bowl Sizes</span>
           <span class="block text-sm text-slate-400 mt-2">Small, medium or large: which suits you?</span></span>
         </a>
         <a href="/sound-bath-canberra/" class="group block bg-slate-800 rounded-2xl overflow-hidden hover:ring-1 hover:ring-amber-400/60 transition">
-          <img src="/img/sound-bath-private.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
+          <img width="640" height="360" src="/img/sound-bath-private.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
           <span class="block p-6"><span class="serif text-2xl text-slate-100 group-hover:text-amber-200">Sound Baths in Canberra</span>
           <span class="block text-sm text-slate-400 mt-2">One-on-one, small groups and online sessions.</span></span>
         </a>
         <a href="/what-is-a-sound-bath/" class="group block bg-slate-800 rounded-2xl overflow-hidden hover:ring-1 hover:ring-amber-400/60 transition">
-          <img src="/img/sound-bath-group.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
+          <img width="640" height="360" src="/img/sound-bath-group.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
           <span class="block p-6"><span class="serif text-2xl text-slate-100 group-hover:text-amber-200">What Is a Sound Bath?</span>
           <span class="block text-sm text-slate-400 mt-2">What happens, how it feels and how to prepare.</span></span>
         </a>
   <!-- GUIDES:END -->
       </div>
+    </div>
+  </section>
+
+  <section id="blog" class="pb-20 sm:pb-24 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="serif text-4xl sm:text-5xl mb-4">From the Blog</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">Crystal or Tibetan bowls, sound baths or massage: honest comparisons to help you choose what actually helps you relax.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- BLOG:START -->
+        <a href="/blog/crystal-vs-tibetan-singing-bowls/" class="group block bg-slate-800 rounded-2xl overflow-hidden hover:ring-1 hover:ring-amber-400/60 transition">
+          <img width="640" height="360" src="/img/crystal-vs-tibetan.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
+          <span class="block p-6"><span class="serif text-2xl text-slate-100 group-hover:text-amber-200">Crystal vs Tibetan Singing Bowls</span>
+          <span class="block text-sm text-slate-400 mt-2">Sound, price, care, and which suits you.</span></span>
+        </a>
+        <a href="/blog/sound-bath-vs-massage/" class="group block bg-slate-800 rounded-2xl overflow-hidden hover:ring-1 hover:ring-amber-400/60 transition">
+          <img width="640" height="360" src="/img/sound-bath-vs-massage.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
+          <span class="block p-6"><span class="serif text-2xl text-slate-100 group-hover:text-amber-200">Sound Bath vs Massage</span>
+          <span class="block text-sm text-slate-400 mt-2">Two ways to switch off, compared honestly.</span></span>
+        </a>
+        <a href="/blog/sound-healing-vs-meditation/" class="group block bg-slate-800 rounded-2xl overflow-hidden hover:ring-1 hover:ring-amber-400/60 transition">
+          <img width="640" height="360" src="/img/sound-healing.webp" alt="" loading="lazy" class="w-full aspect-[16/9] object-cover">
+          <span class="block p-6"><span class="serif text-2xl text-slate-100 group-hover:text-amber-200">Sound Healing vs Meditation</span>
+          <span class="block text-sm text-slate-400 mt-2">What each does, and how they fit together.</span></span>
+        </a>
+  <!-- BLOG:END -->
+      </div>
+      <p class="text-center mt-10"><a href="/blog/" class="inline-block border border-amber-400/60 hover:border-amber-200 text-slate-100 px-7 py-3 rounded-full font-medium">Read the blog</a></p>
     </div>
   </section>
 
@@ -376,7 +407,7 @@
 
   <!-- FOOTER:START -->
   <footer class="py-14 px-4 sm:px-6 border-t border-slate-800">
-    <div class="max-w-6xl mx-auto grid gap-10 sm:grid-cols-3 text-sm">
+    <div class="max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-4 text-sm">
       <div>
         <p class="serif text-2xl text-amber-200 mb-3">Singing Bowl Australia</p>
         <p class="text-slate-400 mb-5">Singing bowl sounds, sound baths and meditation with Prakash Bhattarai. Canberra region and online.</p>
@@ -393,6 +424,7 @@
           <li><a class="hover:text-amber-300" href="/what-is-a-sound-bath/">What is a sound bath?</a></li>
           <li><a class="hover:text-amber-300" href="/singing-bowl-sizes/">Singing bowl sizes</a></li>
           <li><a class="hover:text-amber-300" href="/sound-bath-canberra/">Sound baths in Canberra</a></li>
+          <li><a class="hover:text-amber-300" href="/blog/">Blog</a></li>
         </ul>
       </div>
       <div>
@@ -402,6 +434,14 @@
           <li><a class="hover:text-amber-300" href="https://meditationforbeginners.com/?utm_source=singingbowlaustralia&amp;utm_medium=referral&amp;utm_campaign=footer">Meditation for Beginners guides</a></li>
           <li><a class="hover:text-amber-300" href="https://prakashbhattarai.com/?utm_source=singingbowlaustralia&amp;utm_medium=referral&amp;utm_campaign=footer">Prakash Bhattarai</a></li>
           <li><a class="hover:text-amber-300" href="/#book">Book a session</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-slate-200 font-medium mb-3">More calm</p>
+        <ul class="space-y-2 text-slate-400">
+          <li><a class="hover:text-amber-300" href="https://guidedsleepmeditation.com/?utm_source=singingbowlaustralia&amp;utm_medium=referral&amp;utm_campaign=footer">Guided sleep meditation</a></li>
+          <li><a class="hover:text-amber-300" href="https://guidedanxietymeditation.com/?utm_source=singingbowlaustralia&amp;utm_medium=referral&amp;utm_campaign=footer">Guided anxiety meditation</a></li>
+          <li><a class="hover:text-amber-300" href="https://spiritualcoachingguide.com/?utm_source=singingbowlaustralia&amp;utm_medium=referral&amp;utm_campaign=footer">Spiritual coaching guide</a></li>
         </ul>
       </div>
     </div>
