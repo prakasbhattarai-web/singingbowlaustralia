@@ -69,7 +69,7 @@ def card(p, pad="p-5", gap="mt-1"):
 
 
 def guides(pages):
-    return [p for p in pages if not p.get("type")]
+    return sorted([p for p in pages if not p.get("type")], key=lambda p: not p.get("pin"))
 
 
 def posts(pages):
@@ -98,6 +98,25 @@ def related_block(page, pages):
 
 def blog_cards(pages):
     return f'<div class="not-prose grid sm:grid-cols-2 gap-6 my-10">{"".join(card(p) for p in posts(pages))}</div>'
+
+
+def faq_schema(body, url):
+    """FAQPage schema from the <h3>question</h3><p>answer</p> pairs under the FAQ heading."""
+    i = body.find("<h2>Frequently Asked Questions</h2>")
+    if i < 0:
+        return None
+    sec = body[i + 35:]
+    j = sec.find("<h2")
+    sec = sec if j < 0 else sec[:j]
+    clean = lambda s: html.unescape(re.sub(r"<[^>]+>", "", s)).strip()
+    qa = re.findall(r"<h3>(.*?)</h3>\s*<p>(.*?)</p>", sec, re.S)
+    if not qa:
+        return None
+    return {
+        "@type": "FAQPage",
+        "@id": f"{url}#faq",
+        "mainEntity": [{"@type": "Question", "name": clean(q), "acceptedAnswer": {"@type": "Answer", "text": clean(a)}} for q, a in qa],
+    }
 
 
 def render(page, pages):
@@ -133,6 +152,9 @@ def render(page, pages):
             "itemListElement": crumbs,
         },
     ] + page.get("schema", [])
+    faq = faq_schema(body, url)
+    if faq:
+        graph.append(faq)
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, indent=1, ensure_ascii=False)
     published = date.fromisoformat(page["published"]).strftime("%-d %B %Y")
     return f'''<!DOCTYPE html>
