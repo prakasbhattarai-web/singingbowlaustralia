@@ -185,6 +185,7 @@ def render(page, pages):
   <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/site.css">
+  <script defer src="https://insights.sohamcollective.com/script.js" data-website-id="9f890175-0f4f-4ed3-9cb1-b482b30783a7" data-domains="singingbowlaustralia.com,www.singingbowlaustralia.com"></script>
 </head>
 <body class="bg-slate-950 text-slate-100">
 {NAV}
